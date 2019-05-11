@@ -12,8 +12,8 @@ class _HomePageState extends State<HomePage> {
 
   var num1=0.0,num2=0.0,sum=0.0;
 
-  TextEditingController t1=new TextEditingController(text: "0");
-  TextEditingController t2=new TextEditingController(text: "0");
+  TextEditingController t1=new TextEditingController(text: "");
+  TextEditingController t2=new TextEditingController(text: "");
 
 
   void add()
@@ -51,6 +51,14 @@ class _HomePageState extends State<HomePage> {
       num1=double.parse(t1.text);
       num2=double.parse(t2.text);
       sum=num1/num2;
+    });
+  }
+
+  void clear() {
+    setState(() {
+     t1.text="";
+     t2.text="";
+      sum=0;
     });
   }
 
@@ -107,6 +115,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+            ),
+            RaisedButton(
+              child: Text("Clear",style: TextStyle(fontSize: 25.0),),
+              onPressed: clear,
             )
 
           ],
@@ -114,4 +126,6 @@ class _HomePageState extends State<HomePage> {
       )
     );
   }
+
+
 }
